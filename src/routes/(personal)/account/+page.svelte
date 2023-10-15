@@ -1,23 +1,23 @@
 <script lang="ts">
-	import { user } from "$lib/store/user";
+	import UInputField from "$lib/kit/molecules/input-field/UInputField.svelte";
+  import type { PageData } from "./$types";
+
+	export let data: PageData;
 </script>
 
-<form class="flex flex-col gap-6">
-  <label class="label">
-    <span>Name</span>
-    <input class="input variant-form-material" type="text" placeholder="Ugur Gencturk" value={$user?.name} />
-  </label>
+<form
+  class="flex flex-col gap-6 mb-6"
+  method="post"
+>
+  <UInputField
+    label="Name"
+    name="name"
+    placeholder=""
+    type="text"
+    value={data.user?.name || ""}
+  />
 
-  <label class="label">
-    <span>Age</span>
-    <input class="input variant-form-material" type="number" placeholder="18" value={$user?.age}/>
-  </label>
-
-  <button type="button" class="btn variant-filled">Update</button>
-  <button type="button" class="btn variant-filled">Change password</button>
-  <button type="button" class="btn variant-filled">Change Email</button>
-
-  <a href="/measurements/edit" class="btn variant-ghost-primary">Update Measurements</a>
-
-  <button type="button" class="btn variant-ghost-surface">Exit</button>
+  <button formaction="?/logout" class="btn variant-ghost-surface">
+    Logout
+  </button>
 </form>
