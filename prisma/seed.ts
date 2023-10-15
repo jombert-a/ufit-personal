@@ -14,7 +14,7 @@
 //   console.log(`Created admin with id: ${admin.id}`)
 //   console.log(`Seeding finished.`)
 // }
-
+// 
 // main()
 //   .then(async () => {
 //     await prisma.$disconnect()
